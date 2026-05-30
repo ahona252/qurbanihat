@@ -9,7 +9,7 @@
         "age": 3,
         "location": "Bogura",
         "description": "Healthy deshi cow suitable for Qurbani. Well fed with natural grass and organic feed.",
-        "image": "https://i.postimg.cc/example-cow1.jpg",
+        "image": "https://cdn.britannica.com/55/174255-050-526314B6/brown-Guernsey-cow.jpg",
         "category": "Large Animal"
     },
     {
@@ -22,7 +22,7 @@
         "age": 2,
         "location": "Kushtia",
         "description": "High-quality pure Black Bengal goat. Very energetic, healthy, and perfect for household rearing or religious sacrifice.",
-        "image": "https://i.postimg.cc/example-goat1.jpg",
+        "image": "https://www.woldswildlife.co.uk/images/uploads/animal_introduction_images/boer_vpse.jpeg",
         "category": "Small Animal"
     },
     {
@@ -35,7 +35,7 @@
         "age": 4,
         "location": "Sirajganj",
         "description": "Massive size high-yielding dairy breed, currently prepared for meat production. Fully organic diet.",
-        "image": "https://i.postimg.cc/example-cow2.jpg",
+        "image": "https://a-z-animals.com/media/2025/09/shutterstock-2505482109-huge-licensed-scaled-768x512.jpg",
         "category": "Large Animal"
     },
     {
@@ -48,7 +48,7 @@
         "age": 2,
         "location": "Rajshahi",
         "description": "Beautiful long-eared Jamunapari male goat. Premium look, heavy weight, and completely disease-free.",
-        "image": "https://i.postimg.cc/example-goat2.jpg",
+        "image": "https://thumbs.dreamstime.com/b/goat-farm-2026860.jpg",
         "category": "Small Animal"
     },
     {
@@ -61,7 +61,7 @@
         "age": 5,
         "location": "Manikganj",
         "description": "Huge and healthy buffalo. Excellent structure, calm nature, raised in a modern sanitary farm environment.",
-        "image": "https://i.postimg.cc/example-buffalo1.jpg",
+        "image": "https://t4.ftcdn.net/jpg/13/20/43/77/360_F_1320437721_YzVmgbJ4fmVqf3OwthzqW2hJkVYLbF6G.jpg",
         "category": "Large Animal"
     },
     {
@@ -74,7 +74,7 @@
         "age": 3,
         "location": "Dhaka",
         "description": "Premium quality thick-tailed Dumba. Well-acclimated to the local weather, vaccinated, and premium choice for Qurbani.",
-        "image": "https://i.postimg.cc/example-dumba1.jpg",
+        "image": "https://media.istockphoto.com/id/176133165/photo/a-single-white-sheep-standing-in-green-grass.jpg?s=612x612&w=0&k=20&c=I7aoiilbauta4KZ6AdSrt6f-dy4oxjy7tAxLfbKviOc=",
         "category": "Medium Animal"
     }
 ]
