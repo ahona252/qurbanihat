@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "name": "Deshi Shahi Cow",
+        "type": "Cow",
+        "breed": "Local Deshi",
+        "price": 120000,
+        "weight": 280,
+        "age": 3,
+        "location": "Bogura",
+        "description": "Healthy deshi cow suitable for Qurbani. Well fed with natural grass and organic feed.",
+        "image": "https://i.postimg.cc/example-cow1.jpg",
+        "category": "Large Animal"
+    },
+    {
+        "id": 2,
+        "name": "Black Bengal Goat",
+        "type": "Goat",
+        "breed": "Black Bengal",
+        "price": 25000,
+        "weight": 35,
+        "age": 2,
+        "location": "Kushtia",
+        "description": "High-quality pure Black Bengal goat. Very energetic, healthy, and perfect for household rearing or religious sacrifice.",
+        "image": "https://i.postimg.cc/example-goat1.jpg",
+        "category": "Small Animal"
+    },
+    {
+        "id": 3,
+        "name": "Australian Hybrid Cow",
+        "type": "Cow",
+        "breed": "Australian Cross",
+        "price": 240000,
+        "weight": 450,
+        "age": 4,
+        "location": "Sirajganj",
+        "description": "Massive size high-yielding dairy breed, currently prepared for meat production. Fully organic diet.",
+        "image": "https://i.postimg.cc/example-cow2.jpg",
+        "category": "Large Animal"
+    },
+    {
+        "id": 4,
+        "name": "Jamunapari Buck",
+        "type": "Goat",
+        "breed": "Jamunapari",
+        "price": 45000,
+        "weight": 60,
+        "age": 2,
+        "location": "Rajshahi",
+        "description": "Beautiful long-eared Jamunapari male goat. Premium look, heavy weight, and completely disease-free.",
+        "image": "https://i.postimg.cc/example-goat2.jpg",
+        "category": "Small Animal"
+    },
+    {
+        "id": 5,
+        "name": "Meerut Buffalo",
+        "type": "Buffalo",
+        "breed": "Meerut Cross",
+        "price": 310000,
+        "weight": 550,
+        "age": 5,
+        "location": "Manikganj",
+        "description": "Huge and healthy buffalo. Excellent structure, calm nature, raised in a modern sanitary farm environment.",
+        "image": "https://i.postimg.cc/example-buffalo1.jpg",
+        "category": "Large Animal"
+    },
+    {
+        "id": 6,
+        "name": "Dumba Sheep",
+        "type": "Sheep",
+        "breed": "Central Asian Dumba",
+        "price": 180000,
+        "weight": 85,
+        "age": 3,
+        "location": "Dhaka",
+        "description": "Premium quality thick-tailed Dumba. Well-acclimated to the local weather, vaccinated, and premium choice for Qurbani.",
+        "image": "https://i.postimg.cc/example-dumba1.jpg",
+        "category": "Medium Animal"
+    }
+]
