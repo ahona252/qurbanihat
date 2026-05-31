@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Card, InputGroup, TextField, Label, Button } from '@heroui/react'
+import { Card, Form, Input, InputGroup, TextField, Label, Button } from '@heroui/react'
 import { Mail, Lock, User, Image as ImageIcon, Eye, EyeOff } from 'lucide-react'
 import { FcGoogle } from 'react-icons/fc'
 import Link from 'next/link'
@@ -25,15 +25,17 @@ const RegisterForm = () => {
         confirmPassword: ''
     })
 
+    // Track input updates cleanly
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        })
+        const { name, value } = e.target
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }))
     }
 
     const handleRegister = async (e) => {
-        e.preventDefault() // Prevents full page refresh
+        e.preventDefault() // Prevents page reload
         
         const { name, image, email, password, confirmPassword } = formData
 
@@ -75,7 +77,7 @@ const RegisterForm = () => {
         } catch (err) {
             setLoading(false)
             toast.error('Something went wrong', { position: 'top-right', autoClose: 4000 })
-            console.log(err)
+            console.error(err)
         }
     }
 
@@ -91,67 +93,68 @@ const RegisterForm = () => {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleRegister} className='space-y-5'>
+            <Form onSubmit={handleRegister} className='w-full space-y-5'>
+                
                 {/* Name */}
-                <TextField isRequired>
+                <TextField isRequired className="w-full">
                     <Label className='text-foreground font-medium mb-2'>Full Name</Label>
                     <InputGroup fullWidth className='bg-secondary border border-border rounded-2xl px-3 focus-within:ring-2 focus-within:ring-primary/20'>
                         <InputGroup.Prefix><User size={18} className='text-primary' /></InputGroup.Prefix>
-                        <InputGroup.Input
+                        <Input
                             name='name'
                             type='text'
                             placeholder='John Doe'
                             value={formData.name}
                             onChange={handleChange}
-                            className='bg-transparent text-foreground placeholder:text-muted-foreground'
+                            className='bg-transparent text-foreground placeholder:text-muted-foreground border-none outline-none focus:ring-0 w-full'
                         />
                     </InputGroup>
                 </TextField>
 
                 {/* Image URL */}
-                <TextField>
+                <TextField className="w-full">
                     <Label className='text-foreground font-medium mb-2'>Profile Image URL</Label>
                     <InputGroup fullWidth className='bg-secondary border border-border rounded-2xl px-3 focus-within:ring-2 focus-within:ring-primary/20'>
                         <InputGroup.Prefix><ImageIcon size={18} className='text-primary' /></InputGroup.Prefix>
-                        <InputGroup.Input
+                        <Input
                             name='image'
                             type='text'
                             placeholder='https://example.com/profile.jpg'
                             value={formData.image}
                             onChange={handleChange}
-                            className='bg-transparent text-foreground placeholder:text-muted-foreground'
+                            className='bg-transparent text-foreground placeholder:text-muted-foreground border-none outline-none focus:ring-0 w-full'
                         />
                     </InputGroup>
                 </TextField>
 
                 {/* Email */}
-                <TextField isRequired>
+                <TextField isRequired className="w-full">
                     <Label className='text-foreground font-medium mb-2'>Email</Label>
                     <InputGroup fullWidth className='bg-secondary border border-border rounded-2xl px-3 focus-within:ring-2 focus-within:ring-primary/20'>
                         <InputGroup.Prefix><Mail size={18} className='text-primary' /></InputGroup.Prefix>
-                        <InputGroup.Input
+                        <Input
                             name='email'
                             type='email'
                             placeholder='hello@sweetrose.com'
                             value={formData.email}
                             onChange={handleChange}
-                            className='bg-transparent text-foreground placeholder:text-muted-foreground'
+                            className='bg-transparent text-foreground placeholder:text-muted-foreground border-none outline-none focus:ring-0 w-full'
                         />
                     </InputGroup>
                 </TextField>
 
                 {/* Password */}
-                <TextField isRequired>
+                <TextField isRequired className="w-full">
                     <Label className='text-foreground font-medium mb-2'>Password</Label>
                     <InputGroup fullWidth className='bg-secondary border border-border rounded-2xl px-3 focus-within:ring-2 focus-within:ring-primary/20'>
                         <InputGroup.Prefix><Lock size={18} className='text-primary' /></InputGroup.Prefix>
-                        <InputGroup.Input
+                        <Input
                             name='password'
                             type={showPassword ? 'text' : 'password'}
                             placeholder='••••••••'
                             value={formData.password}
                             onChange={handleChange}
-                            className='bg-transparent text-foreground placeholder:text-muted-foreground'
+                            className='bg-transparent text-foreground placeholder:text-muted-foreground border-none outline-none focus:ring-0 w-full'
                         />
                         <InputGroup.Suffix>
                             <button type='button' onClick={() => setShowPassword(!showPassword)} className='text-muted-foreground hover:text-primary transition'>
@@ -162,17 +165,17 @@ const RegisterForm = () => {
                 </TextField>
 
                 {/* Confirm Password */}
-                <TextField isRequired>
+                <TextField isRequired className="w-full">
                     <Label className='text-foreground font-medium mb-2'>Confirm Password</Label>
                     <InputGroup fullWidth className='bg-secondary border border-border rounded-2xl px-3 focus-within:ring-2 focus-within:ring-primary/20'>
                         <InputGroup.Prefix><Lock size={18} className='text-primary' /></InputGroup.Prefix>
-                        <InputGroup.Input
+                        <Input
                             name='confirmPassword'
                             type={showConfirmPassword ? 'text' : 'password'}
                             placeholder='••••••••'
                             value={formData.confirmPassword}
                             onChange={handleChange}
-                            className='bg-transparent text-foreground placeholder:text-muted-foreground'
+                            className='bg-transparent text-foreground placeholder:text-muted-foreground border-none outline-none focus:ring-0 w-full'
                         />
                         <InputGroup.Suffix>
                             <button type='button' onClick={() => setShowConfirmPassword(!showConfirmPassword)} className='text-muted-foreground hover:text-primary transition'>
@@ -183,12 +186,12 @@ const RegisterForm = () => {
                 </TextField>
 
                 {/* Submit */}
-                <Button type='submit' isLoading={loading} className='w-full bg-primary text-primary-foreground font-bold rounded-2xl h-12'>
+                <Button type='submit' isLoading={loading} className='w-full bg-primary text-primary-foreground font-bold rounded-2xl h-12 mt-2'>
                     Create Account
                 </Button>
 
                 {/* Divider */}
-                <div className='flex items-center gap-3 my-4'>
+                <div className='flex items-center gap-3 my-4 w-full'>
                     <div className='h-px bg-border flex-1' />
                     <span className='text-xs text-muted-foreground'>OR</span>
                     <div className='h-px bg-border flex-1' />
@@ -201,11 +204,11 @@ const RegisterForm = () => {
                 </Button>
 
                 {/* Login Link */}
-                <p className='text-center text-sm text-muted-foreground mt-4'>
+                <p className='text-center text-sm text-muted-foreground mt-4 w-full'>
                     Already have an account?{' '}
                     <Link href='/login' className='text-primary font-bold hover:underline'>Sign in</Link>
                 </p>
-            </form>
+            </Form>
         </Card>
     )
 }
