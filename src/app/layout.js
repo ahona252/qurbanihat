@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body suppressHydrationWarning className="antialiased">
-        <ToastContainer></ToastContainer>
+        <ToastContainer position="top-center" autoClose={3000} theme="colored" />
         <Navbar></Navbar>
         {children}
         <Footer></Footer>

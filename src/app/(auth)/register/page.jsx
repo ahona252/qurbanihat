@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify"; // 1. IMPORT TOAST HERE
 
 const RegisterPage = () => {
   const {
@@ -14,7 +15,7 @@ const RegisterPage = () => {
 
   const [isShowPassword, setIsShowPassword] = useState(false);
 
-  // 1. Email/Password Registration Function
+  // Email/Password Registration Function
   const handleRegisterFunc = async (data) => {
     console.log(data, "data");
     const { email, name, photo, password } = data;
@@ -29,26 +30,28 @@ const RegisterPage = () => {
     });
 
     console.log(res, error);
+    
+    // 2. REPLACED ALERTS WITH TOAST MESSAGES
     if (error) {
-      alert(error.message);
+      toast.error(error.message || "Something went wrong. Please try again.");
     }
 
     if (res) {
-      alert("Signup successful");
+      toast.success("Signup successful! Welcome aboard.");
     }
-  }; // Fixed: properly closed handleRegisterFunc here
+  }; 
 
-  // 2. Google Sign-In Function (Moved outside of handleRegisterFunc)
+  // Google Sign-In Function
   const handleGoogleSignin = async () => {
-    const data = await authClient.signIn.social({
-      provider: "google",
-    });
-
-    console.log(data, "data");
+    try {
+      const data = await authClient.signIn.social({
+        provider: "google",
+      });
+      console.log(data, "data");
+    } catch (err) {
+      toast.error("Google sign-in failed.");
+    }
   };
-
-  // Shared classes for all inputs to keep your code clean
-  const inputFields = "input w-full bg-blue-950 text-white placeholder-slate-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500";
 
   return (
     <div className="container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100">
@@ -139,7 +142,7 @@ const RegisterPage = () => {
         </form>
 
         <p className="mt-4 text-center text-black">
-          Don't have an account?{" "}
+          Already have an account?{" "}
           <Link href={"/login"} className="text-blue-500">
             Login
           </Link>

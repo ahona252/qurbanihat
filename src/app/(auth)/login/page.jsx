@@ -4,12 +4,12 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify"; // 1. IMPORT TOAST HERE
 
 const LoginPage = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -19,32 +19,34 @@ const LoginPage = () => {
     console.log(data, "data");
 
     const { data: res, error } = await authClient.signIn.email({
-      email: data.email, // required
-      password: data.password, // required
+      email: data.email, 
+      password: data.password, 
       rememberMe: true,
       callbackURL: "/",
     });
 
     console.log(res, error);
 
+    // 2. REPLACED WITH TOASTIFY MESSAGES
     if (error) {
-      alert(error.message);
+      toast.error(error.message || "Failed to sign in. Please try again.");
     }
     
-
     if (res) {
-      alert("Signin successful");
+      toast.success("Successfully logged in!");
     }
   };
 
-    const handleGoogleSignin = async () => {
+  const handleGoogleSignin = async () => {
+    try {
       const data = await authClient.signIn.social({
         provider: "google",
       });
-  
       console.log(data, "data");
-    };
-  
+    } catch (err) {
+      toast.error("Google sign-in failed.");
+    }
+  };
 
   return (
     <div className="container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100">
@@ -81,7 +83,7 @@ const LoginPage = () => {
               })}
             />
             <span
-              className="absolute right-2 top-4 cursor-pointer"
+              className="absolute right-2 top-4 cursor-pointer text-slate-400"
               onClick={() => setIsShowPassword(!isShowPassword)}
             >
               {isShowPassword ? <FaEye /> : <FaEyeSlash />}
@@ -100,7 +102,7 @@ const LoginPage = () => {
             Register
           </Link>
         </p>
-                <div className="mt-6 border-t pt-4">
+        <div className="mt-6 border-t pt-4">
           <h2 className="font-bold text-lg mb-4 text-center text-slate-800">OR</h2>
           <button
             className="btn border border-blue-500 text-blue-500 w-full flex items-center justify-center gap-2 py-2 rounded-md hover:bg-blue-50 transition"

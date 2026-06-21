@@ -72,6 +72,12 @@ const Navbar = () => {
             <li>
               <Link href={"/animals"} onClick={closeMenu} className="block py-2 md:py-0 hover:text-blue-800 transition-colors">All Animals</Link>
             </li>
+
+            <li>
+              <Link href={"/profile"} onClick={closeMenu} className="block py-2 md:py-0 hover:text-blue-800 transition-colors">My Profile</Link>
+            </li>
+
+
           </ul>
 
           {/* Authentication Section */}

@@ -57,12 +57,12 @@ export default function AnimalsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-800 p-6 md:p-12 relative">
+    <main className="min-h-screen bg-slate-50 text-slate-800 p-4 sm:p-6 md:p-12 relative">
       
       {/* Dynamic Success Toast Notification */}
       {showToast && (
-        <div className="fixed top-5 right-5 z-50 flex items-center gap-2 bg-emerald-600 text-white px-5 py-3 rounded-xl shadow-xl font-medium text-sm transition-all animate-bounce">
-          <FaCircleCheck className="text-lg" />
+        <div className="fixed top-5 left-4 right-4 sm:left-auto sm:right-5 z-50 flex items-center gap-2 bg-emerald-600 text-white px-5 py-3 rounded-xl shadow-xl font-medium text-sm transition-all animate-bounce max-w-md mx-auto sm:mx-0">
+          <FaCircleCheck className="text-lg shrink-0" />
           <span>Booking processed successfully! (Data cleared)</span>
         </div>
       )}
@@ -75,13 +75,13 @@ export default function AnimalsPage() {
             {/* Back Button */}
             <button 
               onClick={handleBackToMarketplace}
-              className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-950 transition-colors uppercase tracking-wider"
+              className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-950 transition-colors uppercase tracking-wider py-1"
             >
               <FaArrowLeft /> Back to Marketplace
             </button>
 
             {/* Profile Detail Layout */}
-            <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-100 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Left Side: Big Image Display */}
               <div className="relative w-full aspect-square bg-slate-100 rounded-2xl overflow-hidden">
                 <Image
@@ -101,26 +101,26 @@ export default function AnimalsPage() {
                 <div className="space-y-3">
                   <div>
                     <span className="text-xs font-bold uppercase tracking-wide text-blue-600">{activeAnimal.breed}</span>
-                    <h2 className="text-2xl font-extrabold text-blue-950 mt-0.5">{activeAnimal.name}</h2>
+                    <h2 className="text-xl sm:text-2xl font-extrabold text-blue-950 mt-0.5">{activeAnimal.name}</h2>
                   </div>
 
-                  <p className="text-xs text-slate-500 leading-relaxed">{activeAnimal.description}</p>
+                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">{activeAnimal.description}</p>
 
                   {/* Core Metrics Grid */}
-                  <div className="grid grid-cols-2 gap-2 text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                    <div className="flex items-center gap-1.5">
+                  <div className="grid grid-cols-2 gap-2 text-[11px] sm:text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <div className="flex items-center gap-1.5 min-w-0">
                       <FaScaleBalanced className="text-slate-400 shrink-0" />
-                      <span>Weight: <strong className="text-slate-800">{activeAnimal.weight} kg</strong></span>
+                      <span className="truncate">Weight: <strong className="text-slate-800">{activeAnimal.weight} kg</strong></span>
                     </div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 min-w-0">
                       <FaHourglassHalf className="text-slate-400 shrink-0" />
-                      <span>Age: <strong className="text-slate-800">{activeAnimal.age} Yrs</strong></span>
+                      <span className="truncate">Age: <strong className="text-slate-800">{activeAnimal.age} Yrs</strong></span>
                     </div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 min-w-0">
                       <FaPaw className="text-slate-400 shrink-0" />
-                      <span>Type: <strong className="text-slate-800">{activeAnimal.category}</strong></span>
+                      <span className="truncate">Type: <strong className="text-slate-800">{activeAnimal.category}</strong></span>
                     </div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 min-w-0">
                       <FaLocationDot className="text-red-500 shrink-0" />
                       <span className="truncate font-semibold text-slate-800">{activeAnimal.location}</span>
                     </div>
@@ -128,16 +128,16 @@ export default function AnimalsPage() {
                 </div>
 
                 {/* Price and The "Book Now" Trigger Button */}
-                <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between gap-4">
+                <div className="pt-4 border-t border-slate-100 mt-4 flex flex-wrap sm:flex-nowrap items-center justify-between gap-4">
                   <div>
                     <span className="block text-[10px] uppercase text-slate-400 font-bold">Total Valuation Price</span>
-                    <span className="text-2xl font-black text-blue-950">৳{activeAnimal.price?.toLocaleString('en-IN')}</span>
+                    <span className="text-xl sm:text-2xl font-black text-blue-950">৳{activeAnimal.price?.toLocaleString('en-IN')}</span>
                   </div>
 
                   {!showBookingSection && (
                     <Button 
                       onClick={() => setShowBookingSection(true)}
-                      className="bg-blue-950 hover:bg-blue-900 text-white font-bold text-xs px-6 py-2.5 rounded-xl shadow-sm transition-transform active:scale-95"
+                      className="bg-blue-950 hover:bg-blue-900 text-white font-bold text-xs px-6 py-2.5 rounded-xl shadow-sm transition-transform active:scale-95 w-full sm:w-auto"
                     >
                       <FaCalendarCheck size={14} className="mr-1" /> Book Now
                     </Button>
@@ -148,7 +148,7 @@ export default function AnimalsPage() {
 
             {/* Inline Booking Form Frame (Only visible after clicking "Book Now") */}
             {showBookingSection && (
-              <Card className="bg-white border rounded-2xl p-6 shadow-xs flex flex-col gap-4 animate-fade-in">
+              <Card className="bg-white border rounded-2xl p-4 sm:p-6 shadow-xs flex flex-col gap-4 animate-fade-in">
                 <div>
                   <h3 className="text-base font-bold text-blue-950">Secure Appointment Booking</h3>
                   <p className="text-xs text-slate-400 mt-0.5">Fill out your profile criteria below to coordinate processing.</p>
@@ -239,7 +239,7 @@ export default function AnimalsPage() {
                       <label className="text-xs font-bold text-slate-700"> Address </label>
                       <TextArea
                         required
-                        placeholder="Provide your complete shipping  address"
+                        placeholder="Provide your complete shipping address"
                         name="address"
                         size="md"
                         variant="bordered"
@@ -271,10 +271,10 @@ export default function AnimalsPage() {
           <>
             {/* Clean Header */}
             <header className="mb-10 text-center ">
-              <h1 className="text-3xl font-bold tracking-tight text-blue-950">
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-blue-950">
                 Online Marketplace
               </h1>
-              <p className="text-sm text-slate-500 mt-1">
+              <p className="text-xs sm:text-sm text-slate-500 mt-1">
                 All animals are showing here. Click details to look over specifics.
               </p>
             </header>
@@ -290,7 +290,7 @@ export default function AnimalsPage() {
                       src={animal.image}
                       alt={animal.name}
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover"
                     />
                     <span className="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded">
@@ -300,9 +300,9 @@ export default function AnimalsPage() {
 
                   {/* Content Segment */}
                   <div className="p-5 flex-1">
-                    <div className='flex justify-between items-center'>       
-                      <span className="text-xs font-semibold text-black">{animal.breed}</span>
-                      <span className='text-black text-xs'>📍 {animal.location}</span>
+                    <div className='flex justify-between items-center gap-2'>       
+                      <span className="text-xs font-semibold text-black truncate">{animal.breed}</span>
+                      <span className='text-black text-xs shrink-0'>📍 {animal.location}</span>
                     </div>
                     <h3 className="text-lg font-bold text-blue-900 mt-0.5">{animal.name}</h3>
                     <p className="text-xs text-slate-500 mt-2 line-clamp-2">{animal.description}</p>
@@ -315,15 +315,15 @@ export default function AnimalsPage() {
                   </div>
 
                   {/* Pricing & Button Row */}
-                  <div className="p-5 pt-0 flex items-center justify-between">
-                    <div>
+                  <div className="p-5 pt-0 flex items-center justify-between gap-2">
+                    <div className="min-w-0">
                       <span className="block text-[10px] uppercase text-slate-400 font-bold">Price</span>
-                      <span className="text-xl font-extrabold text-blue-900">৳{animal.price?.toLocaleString('en-IN')}</span>
+                      <span className="text-lg sm:text-xl font-extrabold text-blue-900 block truncate">৳{animal.price?.toLocaleString('en-IN')}</span>
                     </div>
                     
                     <button 
                       onClick={() => setActiveAnimal(animal)}
-                      className="bg-blue-950 hover:bg-blue-600 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-colors shadow-xs"
+                      className="bg-blue-950 hover:bg-blue-600 text-white px-4 sm:px-5 py-2.5 rounded-xl text-xs font-bold transition-colors shadow-xs shrink-0"
                     >
                       View Details
                     </button>
